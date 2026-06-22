@@ -19,6 +19,57 @@ Pagamento fácil e seguro: escolha entre cartão de crédito, débito, boleto ou
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página de Cadastro</title>
+  <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro</title>
+</head>
+<body>
+
+  <h1>Cadastro</h1>
+
+  <p id="infoOrigem"></p>
+
+  <form id="formCadastro">
+    <input type="text" id="nome" placeholder="Nome" required>
+    <br><br>
+
+    <input type="email" id="email" placeholder="E-mail" required>
+    <br><br>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <script>
+    // 🔹 pegar dado da página anterior
+    const params = new URLSearchParams(window.location.search);
+    const origem = params.get("origem");
+
+    document.getElementById("infoOrigem").innerText =
+      "Você veio de: " + origem;
+
+    // 🔹 envio do formulário
+    document.getElementById("formCadastro").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+
+      if (nome && email) {
+        // salva temporariamente
+        localStorage.setItem("usuario", nome);
+
+        // vai para página de sucesso
+        window.location.href = "sucesso.html";
+      } else {
+        alert("Preencha os campos!");
+      }
+    });
+  </script>
+
+</body>
+</html>
 
   <style>
     body {
