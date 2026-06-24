@@ -1,282 +1,65 @@
-!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cosmeticos</title>
-</head>
-<body>
-    <h1><bem-vindos-a-BelaEssencia/h1>
-</p>Bem-vindo ao nosso mundo de beleza
-Estamos muito felizes em ter você conosco em nossa loja online de cosméticos
-                                                         nossos estoques em sua casa 
+<!DOCTYPE html>
 
-</head>
-<body>
+<html lang="pt-BR"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Bella Essência</title>
 
-  <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Cadastro</title>
-</head>
-<body>
+<style> *{ margin:0; padding:0; box-sizing:border-box; } body{ font-family:Arial,sans-serif; background:#f5f5f5; } header{ background:#be9b8d; color:white; padding:15px; position:sticky; top:0; z-index:1000; } .topo{ max-width:1200px; margin:auto; display:flex; gap:15px; align-items:center; } .logo{ font-size:26px; font-weight:bold; } .busca{ flex:1; padding:12px; border:none; border-radius:30px; } .carrinho-info{ background:white; color:black; padding:10px 15px; border-radius:30px; font-weight:bold; } .banner{ background:linear-gradient(135deg,#be9b8d,#d9b5a8); color:white; text-align:center; padding:50px 20px; } .banner h1{ margin-bottom:10px; } .produtos{ max-width:1200px; margin:20px auto; padding:0 20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; } .card{ background:white; border-radius:12px; overflow:hidden; box-shadow:0 3px 10px rgba(0,0,0,.1); } .card img{ width:100%; height:220px; object-fit:cover; } .card-body{ padding:15px; } .card h3{ margin-bottom:10px; font-size:16px; } .preco{ color:#be9b8d; font-size:20px; font-weight:bold; margin-bottom:10px; } button{ width:100%; border:none; background:black; color:white; padding:12px; border-radius:8px; cursor:pointer; } button:hover{ background:#333; } .carrinho{ max-width:1200px; margin:20px auto; background:white; border-radius:12px; padding:20px; } .item{ padding:8px 0; border-bottom:1px solid #eee; } .total{ margin-top:15px; font-size:20px; font-weight:bold; } .whatsapp{ background:#25D366; margin-top:15px; } .whatsapp:hover{ background:#1da851; } footer{ text-align:center; padding:30px; color:#666; } </style>
 
-  <h1>Cadastro</h1>
-
-  <p id="infoOrigem"></p>
-
-  <form id="formCadastro">
-    <input type="text" id="nome" placeholder="Nome" required>
-    <br><br>
-
-    <input type="email" id="email" placeholder="E-mail" required>
-    <br><br>
-
-    <button type="submit">Cadastrar</button>
-  </form>
-
-  <script>
-    // 🔹 pegar dado da página anterior
-    const params = new URLSearchParams(window.location.search);
-    const origem = params.get("origem");
-
-    document.getElementById("infoOrigem").innerText =
-      "Você veio de: " + origem;
-
-    // 🔹 envio do formulário
-    document.getElementById("formCadastro").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const nome = document.getElementById("nome").value;
-      const email = document.getElementById("email").value;
-
-      if (nome && email) {
-        // salva temporariamente
-        localStorage.setItem("usuario", nome);
-
-        // vai para página de sucesso
-        window.location.href = "sucesso.html";
-      } else {
-        alert("Preencha os campos!");
-      }
-    });
-  </script>
-
-</body>
-</html>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f8ff; /* cor de fundo */
-    }
-
-    header {
-      background-color: #be9b8d;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .container {
-      display: flex;
-      min-height: 80vh;
-    }
-
-    .esquerda, .direita {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .esquerda {
-      background-color: #b7cfe6;
-    }
-
-    .direita {
-      background-color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* Estilo do formulário */
-    form {
-      width: 100%;
-      max-width: 400px;
-      background-color: #f7f7f7;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    form h2 {
-      margin-top: 0;
-      margin-bottom: 15px;
-      text-align: center;
-      color: #333;
-    }
-
-    form input[type="text"],
-    form input[type="email"],
-    form input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    form input[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      background-color: #332e20;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    form input[type="submit"]:hover {
-      background-color: #8a6b47;
-    }
-
-    footer {
-      background-color: #e6e2e0;
-      color: white;
-      text-align: center;
-      padding: 10px;
-    }
-  </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Minha Página de Cadastro</h1>
-  </header>
+<header> <div class="topo"> <div class="logo">Bella Essência ✨</div>
 
-  <div class="container">
-    <div class="esquerda">
-    
+<input
+  type="text"
+  id="busca"
+  class="busca"
+  placeholder="Buscar perfume..."
+  onkeyup="filtrarProdutos()"
+>
 
-  <footer>
-    <p>Rodapé da página</p>
-  </footer>
-
-</body>
-</html>
-<header>✧˚.⋆Bella Essência</header>
-
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt="batom matte luxo">
-  <h2>Batom Matte Luxo</h2>
-  <p>R$ 29,90</p>
-  <button onclick="comprar()">Comprar</button>
+<div class="carrinho-info">
+  🛒 <span id="contador">0</span>
 </div>
 
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt="perfume egeo dolce">
-  <h2>Perfume Egeo Dolce</h2>
-  <p>R$ 160,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+</div> </header>
 
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt=" perfume egeo spicy dolce">
-  <h2>Perfume Egeo spicy vibe</h2>
-  <p>R$ 170,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+<section class="banner"> <h1>Perfumes e Cosméticos</h1> <p>Luxo acessível para todos os momentos</p> </section>
 
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt="Perfume Feminio Elegante">
-  <h2>Perfume Feminino Elegante</h2>
-  <p>R$ 89,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+<section class="produtos" id="produtos">
 
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt="perfume florata">
-  <h2>Perfume florata</h2>
-  <p>R$ 175,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+<div class="card produto"> <img src="https://via.placeholder.com/300x300?text=Batom+Matte"> <div class="card-body"> <h3>Batom Matte Luxo</h3> <div class="preco">R$ 29,90</div> <button onclick="addCarrinho('Batom Matte Luxo',29.90)">Comprar</button> </div> </div>
 
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt="malbec gold">
-  <h2>malbec gold</h2>
-  <p>R$ 185,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+<div class="card produto"> <img src="https://via.placeholder.com/300x300?text=Egeo+Dolce"> <div class="card-body"> <h3>Egeo Dolce</h3> <div class="preco">R$ 160,90</div> <button onclick="addCarrinho('Egeo Dolce',160.90)">Comprar</button> </div> </div>
 
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt="egeo choc">
-  <h2> Egeo Choc</h2>
-  <p>R$ 175,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+<div class="card produto"> <img src="https://via.placeholder.com/300x300?text=Egeo+Colors"> <div class="card-body"> <h3>Egeo Colors</h3> <div class="preco">R$ 160,90</div> <button onclick="addCarrinho('Egeo Colors',160.90)">Comprar</button> </div> </div>
 
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt="gloos acido">
-  <h2>Gloos acido</h2>
-  <p>R$ 20,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+<div class="card produto"> <img src="https://via.placeholder.com/300x300?text=Bomb+Black"> <div class="card-body"> <h3>Egeo Bomb Black</h3> <div class="preco">R$ 160,90</div> <button onclick="addCarrinho('Egeo Bomb Black',160.90)">Comprar</button> </div> </div>
 
-<div class="produto">
-   <img src="file:///tmp/guest-vj4eod/%C3%81rea%20de%20Trabalho/Screenshot_2026-03-18_100136.webp.jpg" alt="gloos franciny">
-  <h2>Gloos franciny</h2>
-  <p>R$ 35,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+<div class="card produto"> <img src="https://via.placeholder.com/300x300?text=Vanilla+Vibe"> <div class="card-body"> <h3>Egeo Vanilla Vibe</h3> <div class="preco">R$ 160,90</div> <button onclick="addCarrinho('Egeo Vanilla Vibe',160.90)">Comprar</button> </div> </div>
 
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt="gloos franciny">
-  <h2>Gloos franciny</h2>
-  <p>R$ 35,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+<div class="card produto"> <img src="https://via.placeholder.com/300x300?text=Egeo+Choc"> <div class="card-body"> <h3>Egeo Choc</h3> <div class="preco">R$ 160,90</div> <button onclick="addCarrinho('Egeo Choc',160.90)">Comprar</button> </div> </div>
 
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt="gloos franciny">
-  <h2>Gloos franciny</h2>
-  <p>R$ 35,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+<div class="card produto"> <img src="https://via.placeholder.com/300x300?text=Essencial+Oud"> <div class="card-body"> <h3>Essencial Oud Feminino</h3> <div class="preco">R$ 175,90</div> <button onclick="addCarrinho('Essencial Oud Feminino',175.90)">Comprar</button> </div> </div>
 
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt="perfume sauvage dior">
-  <h2>Sauvage Dior</h2>
-  <p>R$ 751,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+<div class="card produto"> <img src="https://via.placeholder.com/300x300?text=Essencial+Elixir"> <div class="card-body"> <h3>Essencial Elixir Masculino</h3> <div class="preco">R$ 175,90</div> <button onclick="addCarrinho('Essencial Elixir Masculino',175.90)">Comprar</button> </div> </div>
 
+<div class="card produto"> <img src="https://via.placeholder.com/300x300?text=Ilia"> <div class="card-body"> <h3>Ilía</h3> <div class="preco">R$ 175,90</div> <button onclick="addCarrinho('Ilía',175.90)">Comprar</button> </div> </div>
 
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt="Combo cuide-se bem deleite cramelizado: body splash 200ml + loção corporal 400ml">
-  <h2>Combo Cuide-se Bem Deleite Caramelizado: Body Splash 200ml + Loção Corporal 400ml</h2>
-  <p>R$ 127,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+<div class="card produto"> <img src="https://via.placeholder.com/300x300?text=Sauvage+Dior"> <div class="card-body"> <h3>Sauvage Dior</h3> <div class="preco">R$ 751,90</div> <button onclick="addCarrinho('Sauvage Dior',751.90)">Comprar</button> </div> </div>
 
-<div class="produto">
-   <img src="caminho/para/sua-imagem2.jpg" alt="body splash cuide-se bem deleite 200ml">
-  <h2>Body Splash Cuide-Se Bem Deleite 200ml
-</h2>
-  <p>R$ 92,90</p>
-  <button onclick="comprar()">Comprar</button>
-</div>
+</section>
 
-<script>
-function comprar() {
-  window.location.href = "https://wa.me/55(44)998906149?text=Quero%20comprar%20na%20Bella%20Essência";
-}
-</script>
+<section class="carrinho"> <h2>Seu Carrinho 🛒</h2>
 
-</body>
-</html>
+<div id="listaCarrinho"></div>
 
-<
+<div class="total" id="total"> Total: R$ 0,00 </div>
+
+<button class="whatsapp" onclick="finalizarCompra()"> Finalizar Compra pelo WhatsApp </button> </section>
+
+<footer> Bella Essência © 2026 </footer>
+
+<script> let carrinho = JSON.parse(localStorage.getItem("carrinho")) || []; function salvar(){ localStorage.setItem( "carrinho", JSON.stringify(carrinho) ); } function atualizarCarrinho(){ let lista = document.getElementById("listaCarrinho"); let total = 0; lista.innerHTML = ""; carrinho.forEach(item=>{ total += item.preco; lista.innerHTML += ` <div class="item"> ${item.nome} - R$ ${item.preco.toFixed(2)} </div> `; }); document.getElementById("contador") .innerText = carrinho.length; document.getElementById("total") .innerText = "Total: R$ " + total.toFixed(2); } function addCarrinho(nome,preco){ carrinho.push({nome,preco}); salvar(); atualizarCarrinho(); alert(nome + " adicionado ao carrinho!"); } function finalizarCompra(){ if(carrinho.length === 0){ alert("Carrinho vazio"); return; } let msg = "Olá! Quero comprar:%0A"; carrinho.forEach(item=>{ msg += "- " + item.nome + " R$ " + item.preco.toFixed(2) + "%0A"; }); window.open( "https://wa.me/5544998906149?text=" + msg, "_blank" ); } function filtrarProdutos(){ const termo = document.getElementById("busca") .value .toLowerCase(); document .querySelectorAll(".produto") .forEach(produto=>{ const texto = produto.innerText.toLowerCase(); produto.style.display = texto.includes(termo) ? "block" : "none"; }); } atualizarCarrinho(); </script>
+
+</body> </html>
