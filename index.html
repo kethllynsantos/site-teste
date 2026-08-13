@@ -24,21 +24,50 @@
             color: #222;
         }
 
+        /* =========================================
+           ACESSIBILIDADE
+        ========================================= */
+
         .skip-link {
             position: absolute;
-            top: -50px;
+            top: -60px;
             left: 10px;
             background: #000;
             color: #fff;
-            padding: 10px 15px;
+            padding: 12px 18px;
             z-index: 1000;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 5px;
+            font-weight: bold;
         }
 
         .skip-link:focus {
             top: 10px;
         }
+
+        a:focus,
+        button:focus,
+        input:focus {
+            outline: 4px solid #ffbf00;
+            outline-offset: 3px;
+        }
+
+        /* Mensagem somente para leitores de tela */
+        .aviso-acessibilidade {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* =========================================
+           CABEÇALHO
+        ========================================= */
 
         header {
             background-color: #5a2a82;
@@ -70,6 +99,10 @@
             text-decoration: underline;
         }
 
+        /* =========================================
+           CONTEÚDO
+        ========================================= */
+
         main {
             max-width: 1200px;
             margin: 0 auto;
@@ -87,6 +120,10 @@
             border-radius: 8px;
         }
 
+        /* =========================================
+           BUSCA
+        ========================================= */
+
         label {
             display: block;
             font-weight: bold;
@@ -96,15 +133,22 @@
         #busca {
             width: 100%;
             max-width: 600px;
-            padding: 12px;
+            padding: 14px;
             border: 2px solid #555;
             border-radius: 5px;
             font-size: 1rem;
         }
 
+        /* =========================================
+           PRODUTOS
+        ========================================= */
+
         .produtos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(220px, 1fr)
+            );
             gap: 20px;
         }
 
@@ -113,13 +157,14 @@
             border: 1px solid #ccc;
             border-radius: 8px;
             padding: 20px;
+
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
             overflow: hidden;
         }
 
-        /* IMAGEM DO PRODUTO */
         .imagem-produto {
             width: 100%;
             height: 230px;
@@ -162,12 +207,9 @@
             background-color: #431d62;
         }
 
-        a:focus,
-        button:focus,
-        input:focus {
-            outline: 4px solid #ffbf00;
-            outline-offset: 3px;
-        }
+        /* =========================================
+           CARRINHO
+        ========================================= */
 
         .carrinho {
             background: #fff;
@@ -177,7 +219,52 @@
         }
 
         #listaCarrinho {
-            padding-left: 20px;
+            padding: 0;
+            margin: 20px 0;
+            list-style: none;
+        }
+
+        .carrinho-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid #ccc;
+        }
+
+        .informacoes-produto {
+            flex: 1;
+        }
+
+        .nome-produto-carrinho {
+            display: block;
+            font-weight: bold;
+            color: #4a216b;
+            font-size: 1.05rem;
+        }
+
+        .preco-produto-carrinho {
+            display: block;
+            margin-top: 5px;
+        }
+
+        .botao-remover {
+            background-color: #b00020;
+            min-width: 100px;
+        }
+
+        .botao-remover:hover,
+        .botao-remover:focus {
+            background-color: #7d0017;
+        }
+
+        .total-carrinho {
+            font-size: 1.3rem;
+            margin-top: 20px;
         }
 
         .whatsapp {
@@ -185,13 +272,27 @@
             margin-top: 15px;
         }
 
-        .whatsapp:hover {
+        .whatsapp:hover,
+        .whatsapp:focus {
             background-color: #0d6b2d;
         }
 
         .mensagem-vazia {
             color: #555;
         }
+
+        /* =========================================
+           CONTATO
+        ========================================= */
+
+        #contato a {
+            color: #4a216b;
+            font-weight: bold;
+        }
+
+        /* =========================================
+           RODAPÉ
+        ========================================= */
 
         footer {
             background-color: #222;
@@ -204,7 +305,12 @@
             color: white;
         }
 
+        /* =========================================
+           CELULAR
+        ========================================= */
+
         @media (max-width: 600px) {
+
             nav ul {
                 flex-direction: column;
                 gap: 10px;
@@ -221,32 +327,91 @@
             .imagem-produto {
                 height: 250px;
             }
+
+            .carrinho-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .botao-remover {
+                width: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <a class="skip-link" href="#conteudo">
+    <!-- =========================================
+         LINK PARA PULAR O MENU
+    ========================================== -->
+
+    <a
+        class="skip-link"
+        href="#conteudo">
+
         Ir diretamente para o conteúdo principal
+
     </a>
 
-    <header>
-        <h1>Loja de Perfumes</h1>
 
-        <nav aria-label="Navegação principal">
+    <!-- =========================================
+         CABEÇALHO
+    ========================================== -->
+
+    <header>
+
+        <h1>
+            Loja de Perfumes
+        </h1>
+
+        <nav
+            aria-label="Navegação principal">
+
             <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#produtos">Conheça nossos perfumes</a></li>
-                <li><a href="#carrinho">Ver carrinho de compras</a></li>
-                <li><a href="#contato">Informações de contato</a></li>
+
+                <li>
+                    <a href="#inicio">
+                        Início
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#produtos">
+                        Conheça nossos perfumes
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#carrinho">
+                        Ver carrinho de compras
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contato">
+                        Informações de contato
+                    </a>
+                </li>
+
             </ul>
+
         </nav>
+
     </header>
+
+
+    <!-- =========================================
+         CONTEÚDO PRINCIPAL
+    ========================================== -->
 
     <main id="conteudo">
 
-        <section id="inicio"
+
+        <!-- INTRODUÇÃO -->
+
+        <section
+            id="inicio"
             class="introducao"
             aria-labelledby="titulo-inicio">
 
@@ -260,13 +425,19 @@
             </p>
 
             <p>
-                Utilize a busca abaixo para localizar rapidamente
-                um produto.
+                Utilize a busca abaixo para localizar
+                rapidamente um produto.
             </p>
 
         </section>
 
-        <section class="busca-area"
+
+        <!-- =====================================
+             BUSCA
+        ====================================== -->
+
+        <section
+            class="busca-area"
             aria-labelledby="titulo-busca">
 
             <h2 id="titulo-busca">
@@ -274,523 +445,684 @@
             </h2>
 
             <label for="busca">
-                Digite o nome do perfume que deseja encontrar:
+
+                Digite o nome do perfume
+                que deseja encontrar:
+
             </label>
 
             <input
-                type="text"
+                type="search"
                 id="busca"
                 placeholder="Ex.: Kaiak, Malbec ou Lily"
-                onkeyup="filtrarProdutos()"
-                aria-describedby="ajuda-busca"
-            >
+                oninput="filtrarProdutos()"
+                aria-describedby="ajuda-busca">
 
             <p id="ajuda-busca">
+
                 Os produtos serão filtrados conforme você digita.
+
             </p>
 
         </section>
 
-        <section id="produtos"
+
+        <!-- =====================================
+             PRODUTOS
+        ====================================== -->
+
+        <section
+            id="produtos"
             aria-labelledby="titulo-produtos">
 
             <h2 id="titulo-produtos">
                 Perfumes disponíveis
             </h2>
 
+
             <div class="produtos">
 
+
                 <!-- KAIak -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://media.falabella.com/falabellaPE/126335323_01/w%3D1500%2Ch%3D1500%2Cfit%3Dcover"
-                        alt="Frasco do perfume Kaiak Aventura"
-                        loading="lazy"
-                    >
+                        alt="Frasco do perfume Kaiak Natura"
+                        loading="lazy">
 
-                    <h3>Kaiak Natura</h3>
+                    <h3>
+                        Kaiak Natura
+                    </h3>
 
                     <p class="descricao">
                         Perfume Kaiak Natura para quem busca
                         uma fragrância marcante.
                     </p>
 
-                    <div class="preco">R$ 169,90</div>
+                    <div class="preco">
+                        R$ 169,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Kaiak Natura', 169.90)"
                         aria-label="Comprar perfume Kaiak Natura por R$ 169,90">
+
                         Comprar Kaiak Natura
+
                     </button>
+
                 </article>
 
 
                 <!-- ESSENCIAL OUD -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://www.luxtor.pe/wp-content/uploads/2022/06/Perfume-Masculino-Essencial-Oud-Natura-100-ml.jpg"
                         alt="Frasco do perfume Essencial Oud"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Essencial Oud</h3>
+                    <h3>
+                        Essencial Oud
+                    </h3>
 
                     <p class="descricao">
                         Fragrância Essencial Oud com aroma
                         sofisticado e marcante.
                     </p>
 
-                    <div class="preco">R$ 259,90</div>
+                    <div class="preco">
+                        R$ 259,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Essencial Oud', 259.90)"
                         aria-label="Comprar perfume Essencial Oud por R$ 259,90">
+
                         Comprar Essencial Oud
+
                     </button>
+
                 </article>
 
 
-                <!-- HUMOR -->
+                <!-- HUMOR A RIGOR -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
-                        src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lz7q5x0m0z8d8e"
-                        alt="Frasco do perfume Humor a Rigor"
-                        loading="lazy"
-                    >
+                        src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Humor+a+Rigor"
+                        alt="Imagem ilustrativa do perfume Humor a Rigor"
+                        loading="lazy">
 
-                    <h3>Humor a Rigor</h3>
+                    <h3>
+                        Humor a Rigor
+                    </h3>
 
                     <p class="descricao">
                         Perfume Humor a Rigor para uma
                         fragrância descontraída.
                     </p>
 
-                    <div class="preco">R$ 149,90</div>
+                    <div class="preco">
+                        R$ 149,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Humor a Rigor', 149.90)"
                         aria-label="Comprar perfume Humor a Rigor por R$ 149,90">
+
                         Comprar Humor a Rigor
+
                     </button>
+
                 </article>
 
 
                 <!-- LILY -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://redeloja-global.b-cdn.net/arquivos/produtos/f9ad8011-fd08-4f55-a271-46ba69f38fa9/577f8fe6-8d13-4649-8a8a-275cefdf2f50.jpg?v=1780430073"
                         alt="Frasco dourado do perfume Lily"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Lily</h3>
+                    <h3>
+                        Lily
+                    </h3>
 
                     <p class="descricao">
                         Fragrância Lily com perfil delicado
                         e sofisticado.
                     </p>
 
-                    <div class="preco">R$ 329,90</div>
+                    <div class="preco">
+                        R$ 329,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Lily', 329.90)"
                         aria-label="Comprar perfume Lily por R$ 329,90">
+
                         Comprar Lily
+
                     </button>
+
                 </article>
 
 
                 <!-- MALBEC -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
-                        src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lz7q5x0m0z8d8e"
-                        alt="Frasco do perfume Malbec"
-                        loading="lazy"
-                    >
+                        src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Malbec"
+                        alt="Imagem ilustrativa do perfume Malbec"
+                        loading="lazy">
 
-                    <h3>Malbec</h3>
+                    <h3>
+                        Malbec
+                    </h3>
 
                     <p class="descricao">
                         Perfume Malbec com fragrância marcante
                         e envolvente.
                     </p>
 
-                    <div class="preco">R$ 239,90</div>
+                    <div class="preco">
+                        R$ 239,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Malbec', 239.90)"
                         aria-label="Comprar perfume Malbec por R$ 239,90">
+
                         Comprar Malbec
+
                     </button>
+
                 </article>
 
 
-                <!-- EGEO -->
+                <!-- EGEO DOLCE -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Egeo+Dolce"
                         alt="Imagem ilustrativa do perfume Egeo Dolce"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Egeo Dolce</h3>
+                    <h3>
+                        Egeo Dolce
+                    </h3>
 
                     <p class="descricao">
                         Fragrância Egeo Dolce com perfil
                         doce e envolvente.
                     </p>
 
-                    <div class="preco">R$ 119,90</div>
+                    <div class="preco">
+                        R$ 119,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Egeo Dolce', 119.90)"
                         aria-label="Comprar perfume Egeo Dolce por R$ 119,90">
+
                         Comprar Egeo Dolce
+
                     </button>
+
                 </article>
 
 
                 <!-- COFFEE WOMAN -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://americanas.vtexassets.com/arquivos/ids/17917758/64895712_1_xlarge.jpg?v=638754810773130000"
                         alt="Frasco do perfume Coffee Woman"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Coffee Woman</h3>
+                    <h3>
+                        Coffee Woman
+                    </h3>
 
                     <p class="descricao">
                         Perfume Coffee Woman com fragrância
                         marcante.
                     </p>
 
-                    <div class="preco">R$ 199,90</div>
+                    <div class="preco">
+                        R$ 199,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Coffee Woman', 199.90)"
                         aria-label="Comprar perfume Coffee Woman por R$ 199,90">
+
                         Comprar Coffee Woman
+
                     </button>
+
                 </article>
 
 
                 <!-- LUNA -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Luna+Natura"
                         alt="Imagem ilustrativa do perfume Luna Natura"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Luna Natura</h3>
+                    <h3>
+                        Luna Natura
+                    </h3>
 
                     <p class="descricao">
                         Fragrância Luna Natura para diferentes
                         ocasiões.
                     </p>
 
-                    <div class="preco">R$ 189,90</div>
+                    <div class="preco">
+                        R$ 189,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Luna Natura', 189.90)"
                         aria-label="Comprar perfume Luna Natura por R$ 189,90">
+
                         Comprar Luna Natura
+
                     </button>
+
                 </article>
 
 
                 <!-- BIOGRAFIA -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
-                        src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Biografia+Natura"
+                        src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Biografia"
                         alt="Imagem ilustrativa do perfume Biografia Masculino"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Biografia Masculino</h3>
+                    <h3>
+                        Biografia Masculino
+                    </h3>
 
                     <p class="descricao">
                         Perfume Biografia Masculino com
                         fragrância marcante.
                     </p>
 
-                    <div class="preco">R$ 159,90</div>
+                    <div class="preco">
+                        R$ 159,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Biografia Masculino', 159.90)"
                         aria-label="Comprar perfume Biografia Masculino por R$ 159,90">
+
                         Comprar Biografia Masculino
+
                     </button>
+
                 </article>
 
 
                 <!-- KAIAK AVENTURA -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://media.falabella.com/falabellaPE/126335323_01/w%3D1500%2Ch%3D1500%2Cfit%3Dcover"
                         alt="Frasco verde do perfume Kaiak Aventura"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Kaiak Aventura</h3>
+                    <h3>
+                        Kaiak Aventura
+                    </h3>
 
                     <p class="descricao">
                         Fragrância Kaiak Aventura para quem
                         gosta de aromas marcantes.
                     </p>
 
-                    <div class="preco">R$ 179,90</div>
+                    <div class="preco">
+                        R$ 179,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Kaiak Aventura', 179.90)"
                         aria-label="Comprar perfume Kaiak Aventura por R$ 179,90">
+
                         Comprar Kaiak Aventura
+
                     </button>
+
                 </article>
 
 
                 <!-- ESSENCIAL EXCLUSIVO -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Essencial+Exclusivo"
                         alt="Imagem ilustrativa do perfume Essencial Exclusivo"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Essencial Exclusivo</h3>
+                    <h3>
+                        Essencial Exclusivo
+                    </h3>
 
                     <p class="descricao">
                         Perfume Essencial Exclusivo com
                         fragrância sofisticada.
                     </p>
 
-                    <div class="preco">R$ 279,90</div>
+                    <div class="preco">
+                        R$ 279,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Essencial Exclusivo', 279.90)"
                         aria-label="Comprar perfume Essencial Exclusivo por R$ 279,90">
+
                         Comprar Essencial Exclusivo
+
                     </button>
+
                 </article>
 
 
                 <!-- UNA ART -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Una+Art"
                         alt="Imagem ilustrativa do perfume Una Art"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Una Art</h3>
+                    <h3>
+                        Una Art
+                    </h3>
 
                     <p class="descricao">
                         Fragrância Una Art para quem procura
                         um perfume marcante.
                     </p>
 
-                    <div class="preco">R$ 229,90</div>
+                    <div class="preco">
+                        R$ 229,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Una Art', 229.90)"
                         aria-label="Comprar perfume Una Art por R$ 229,90">
+
                         Comprar Una Art
+
                     </button>
+
                 </article>
 
 
                 <!-- QUASAR -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
-                        src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lz7q5x0m0z8d8e"
-                        alt="Frasco azul do perfume Quasar Classic"
-                        loading="lazy"
-                    >
+                        src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Quasar+Classic"
+                        alt="Imagem ilustrativa do perfume Quasar Classic"
+                        loading="lazy">
 
-                    <h3>Quasar Classic</h3>
+                    <h3>
+                        Quasar Classic
+                    </h3>
 
                     <p class="descricao">
                         Perfume Quasar Classic com fragrância
                         marcante.
                     </p>
 
-                    <div class="preco">R$ 149,90</div>
+                    <div class="preco">
+                        R$ 149,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Quasar Classic', 149.90)"
                         aria-label="Comprar perfume Quasar Classic por R$ 149,90">
+
                         Comprar Quasar Classic
+
                     </button>
+
                 </article>
 
 
                 <!-- ARBO -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Arbo"
                         alt="Imagem ilustrativa do perfume Arbo"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Arbo</h3>
+                    <h3>
+                        Arbo
+                    </h3>
 
                     <p class="descricao">
                         Fragrância Arbo para diferentes
                         momentos do dia.
                     </p>
 
-                    <div class="preco">R$ 159,90</div>
+                    <div class="preco">
+                        R$ 159,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Arbo', 159.90)"
                         aria-label="Comprar perfume Arbo por R$ 159,90">
+
                         Comprar Arbo
+
                     </button>
+
                 </article>
 
 
                 <!-- FLORATTA BLUE -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
-                        src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lz7q5x0m0z8d8e"
-                        alt="Frasco do perfume Floratta Blue"
-                        loading="lazy"
-                    >
+                        src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Floratta+Blue"
+                        alt="Imagem ilustrativa do perfume Floratta Blue"
+                        loading="lazy">
 
-                    <h3>Floratta Blue</h3>
+                    <h3>
+                        Floratta Blue
+                    </h3>
 
                     <p class="descricao">
                         Perfume Floratta Blue com fragrância
                         delicada e agradável.
                     </p>
 
-                    <div class="preco">R$ 189,90</div>
+                    <div class="preco">
+                        R$ 189,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Floratta Blue', 189.90)"
                         aria-label="Comprar perfume Floratta Blue por R$ 189,90">
+
                         Comprar Floratta Blue
+
                     </button>
+
                 </article>
 
 
                 <!-- GLAMOUR -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Glamour+Secrets+Black"
                         alt="Imagem ilustrativa do perfume Glamour Secrets Black"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Glamour Secrets Black</h3>
+                    <h3>
+                        Glamour Secrets Black
+                    </h3>
 
                     <p class="descricao">
                         Fragrância Glamour Secrets Black
                         com aroma marcante.
                     </p>
 
-                    <div class="preco">R$ 219,90</div>
+                    <div class="preco">
+                        R$ 219,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Glamour Secrets Black', 219.90)"
                         aria-label="Comprar perfume Glamour Secrets Black por R$ 219,90">
+
                         Comprar Glamour Secrets Black
+
                     </button>
+
                 </article>
 
 
                 <!-- LIZ -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Liz"
                         alt="Imagem ilustrativa do perfume Liz"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Liz</h3>
+                    <h3>
+                        Liz
+                    </h3>
 
                     <p class="descricao">
                         Perfume Liz com fragrância
                         sofisticada e agradável.
                     </p>
 
-                    <div class="preco">R$ 199,90</div>
+                    <div class="preco">
+                        R$ 199,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Liz', 199.90)"
                         aria-label="Comprar perfume Liz por R$ 199,90">
+
                         Comprar Liz
+
                     </button>
+
                 </article>
 
 
                 <!-- KRISKA -->
+
                 <article class="produto">
+
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Kriska+Drama"
                         alt="Imagem ilustrativa do perfume Kriska Drama"
-                        loading="lazy"
-                    >
+                        loading="lazy">
 
-                    <h3>Kriska Drama</h3>
+                    <h3>
+                        Kriska Drama
+                    </h3>
 
                     <p class="descricao">
                         Fragrância Kriska Drama com
                         aroma marcante.
                     </p>
 
-                    <div class="preco">R$ 169,90</div>
+                    <div class="preco">
+                        R$ 169,90
+                    </div>
 
                     <button
                         type="button"
                         onclick="addCarrinho('Kriska Drama', 169.90)"
                         aria-label="Comprar perfume Kriska Drama por R$ 169,90">
+
                         Comprar Kriska Drama
+
                     </button>
+
                 </article>
 
             </div>
+
         </section>
 
 
-        <!-- CARRINHO -->
-        <section id="carrinho"
+        <!-- =====================================
+             CARRINHO
+        ====================================== -->
+
+        <section
+            id="carrinho"
             class="carrinho"
             aria-labelledby="titulo-carrinho">
 
@@ -798,36 +1130,72 @@
                 Carrinho de compras
             </h2>
 
-            <p id="mensagemCarrinho"
+            <!--
+                Esta mensagem não aparece visualmente,
+                mas é lida pelo leitor de tela.
+            -->
+
+            <div
+                id="avisoCarrinho"
+                class="aviso-acessibilidade"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true">
+            </div>
+
+
+            <p
+                id="mensagemCarrinho"
                 class="mensagem-vazia"
                 aria-live="polite">
+
                 Seu carrinho está vazio.
+
             </p>
 
-            <ul id="listaCarrinho"
-                aria-live="polite">
+
+            <ul
+                id="listaCarrinho"
+                aria-label="Produtos adicionados ao carrinho">
             </ul>
 
-            <p>
+
+            <p class="total-carrinho">
+
                 <strong>
-                    Total: R$
-                    <span id="total">0,00</span>
+
+                    Total da compra:
+
+                    R$
+
+                    <span id="total">
+                        0,00
+                    </span>
+
                 </strong>
+
             </p>
+
 
             <button
                 type="button"
                 class="whatsapp"
                 onclick="finalizarWhatsApp()"
                 aria-label="Finalizar compra pelo WhatsApp">
+
                 Finalizar compra pelo WhatsApp
+
             </button>
 
         </section>
 
 
-        <!-- CONTATO -->
-        <section id="contato"
+        <!-- =====================================
+             CONTATO
+        ====================================== -->
+
+        <section
+            id="contato"
             aria-labelledby="titulo-contato">
 
             <h2 id="titulo-contato">
@@ -844,13 +1212,19 @@
                 target="_blank"
                 rel="noopener"
                 aria-label="Entrar em contato com a loja pelo WhatsApp">
+
                 Entrar em contato com a loja pelo WhatsApp
+
             </a>
 
         </section>
 
     </main>
 
+
+    <!-- =========================================
+         RODAPÉ
+    ========================================== -->
 
     <footer>
 
@@ -860,31 +1234,128 @@
         </p>
 
         <p>
+
             <a href="#conteudo">
                 Voltar ao conteúdo principal
             </a>
+
         </p>
 
     </footer>
 
 
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
     <script>
+
+        // =====================================================
+        // CARRINHO
+        // =====================================================
 
         let carrinho = [];
 
 
         // =====================================================
-        // ADICIONAR AO CARRINHO
+        // FORMATAR PREÇO
+        // =====================================================
+
+        function formatarPreco(valor) {
+
+            return valor
+                .toFixed(2)
+                .replace(".", ",");
+
+        }
+
+
+        // =====================================================
+        // AVISO PARA LEITOR DE TELA
+        // =====================================================
+
+        function anunciar(mensagem) {
+
+            const aviso =
+                document.getElementById(
+                    "avisoCarrinho"
+                );
+
+            aviso.textContent = "";
+
+            setTimeout(function () {
+
+                aviso.textContent = mensagem;
+
+            }, 100);
+
+        }
+
+
+        // =====================================================
+        // ADICIONAR PRODUTO
         // =====================================================
 
         function addCarrinho(nome, preco) {
 
             carrinho.push({
+
                 nome: nome,
                 preco: preco
+
             });
 
+
             atualizarCarrinho();
+
+
+            anunciar(
+
+                nome +
+                " foi adicionado ao carrinho. " +
+
+                "Total de itens: " +
+
+                carrinho.length
+
+            );
+
+        }
+
+
+        // =====================================================
+        // REMOVER PRODUTO
+        // =====================================================
+
+        function removerCarrinho(indice) {
+
+            const produtoRemovido =
+                carrinho[indice];
+
+
+            if (!produtoRemovido) {
+
+                return;
+
+            }
+
+
+            carrinho.splice(
+                indice,
+                1
+            );
+
+
+            atualizarCarrinho();
+
+
+            anunciar(
+
+                produtoRemovido.nome +
+                " foi removido do carrinho."
+
+            );
+
         }
 
 
@@ -895,156 +1366,409 @@
         function atualizarCarrinho() {
 
             const lista =
-                document.getElementById("listaCarrinho");
+                document.getElementById(
+                    "listaCarrinho"
+                );
+
 
             const totalElemento =
-                document.getElementById("total");
+                document.getElementById(
+                    "total"
+                );
+
 
             const mensagem =
-                document.getElementById("mensagemCarrinho");
+                document.getElementById(
+                    "mensagemCarrinho"
+                );
+
 
             lista.innerHTML = "";
 
+
             let total = 0;
 
+
+            // CARRINHO VAZIO
 
             if (carrinho.length === 0) {
 
                 mensagem.textContent =
                     "Seu carrinho está vazio.";
 
-            } else {
 
-                mensagem.textContent =
-                    "Produtos adicionados ao carrinho:";
+                totalElemento.textContent =
+                    "0,00";
 
 
-                carrinho.forEach(function(produto) {
+                return;
 
-                    const item =
-                        document.createElement("li");
-
-                    item.textContent =
-                        produto.nome +
-                        " - R$ " +
-                        produto.preco
-                            .toFixed(2)
-                            .replace(".", ",");
-
-                    lista.appendChild(item);
-
-                    total += produto.preco;
-                });
             }
 
 
+            // QUANTIDADE DE PRODUTOS
+
+            mensagem.textContent =
+
+                "Seu carrinho possui " +
+
+                carrinho.length +
+
+                (
+                    carrinho.length === 1
+                        ? " produto."
+                        : " produtos."
+                );
+
+
+            // CRIAR CADA ITEM
+
+            carrinho.forEach(
+
+                function (
+                    produto,
+                    indice
+                ) {
+
+
+                    const item =
+                        document.createElement(
+                            "li"
+                        );
+
+
+                    item.className =
+                        "carrinho-item";
+
+
+                    // Informações
+
+                    const informacoes =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    informacoes.className =
+                        "informacoes-produto";
+
+
+                    // Nome
+
+                    const nome =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    nome.className =
+                        "nome-produto-carrinho";
+
+
+                    nome.textContent =
+                        produto.nome;
+
+
+                    // Preço
+
+                    const preco =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    preco.className =
+                        "preco-produto-carrinho";
+
+
+                    preco.textContent =
+
+                        "Preço: R$ " +
+
+                        formatarPreco(
+                            produto.preco
+                        );
+
+
+                    informacoes.appendChild(
+                        nome
+                    );
+
+
+                    informacoes.appendChild(
+                        preco
+                    );
+
+
+                    // Botão remover
+
+                    const botaoRemover =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    botaoRemover.type =
+                        "button";
+
+
+                    botaoRemover.className =
+                        "botao-remover";
+
+
+                    botaoRemover.textContent =
+                        "Remover";
+
+
+                    botaoRemover.setAttribute(
+
+                        "aria-label",
+
+                        "Remover " +
+
+                        produto.nome +
+
+                        " do carrinho"
+
+                    );
+
+
+                    botaoRemover.addEventListener(
+
+                        "click",
+
+                        function () {
+
+                            removerCarrinho(
+                                indice
+                            );
+
+                        }
+
+                    );
+
+
+                    item.appendChild(
+                        informacoes
+                    );
+
+
+                    item.appendChild(
+                        botaoRemover
+                    );
+
+
+                    lista.appendChild(
+                        item
+                    );
+
+
+                    total +=
+                        produto.preco;
+
+                }
+
+            );
+
+
+            // TOTAL
+
             totalElemento.textContent =
-                total
-                    .toFixed(2)
-                    .replace(".", ",");
+                formatarPreco(total);
+
         }
 
 
         // =====================================================
-        // BUSCAR PRODUTOS
+        // FILTRAR PRODUTOS
         // =====================================================
 
         function filtrarProdutos() {
 
             const busca =
                 document
-                    .getElementById("busca")
+                    .getElementById(
+                        "busca"
+                    )
                     .value
                     .toLowerCase()
                     .trim();
 
 
             const produtos =
-                document.querySelectorAll(".produto");
+                document.querySelectorAll(
+                    ".produto"
+                );
 
 
-            produtos.forEach(function(produto) {
-
-                const nome =
-                    produto
-                        .querySelector("h3")
-                        .textContent
-                        .toLowerCase();
+            let encontrados = 0;
 
 
-                if (nome.includes(busca)) {
+            produtos.forEach(
 
-                    produto.style.display = "";
+                function (produto) {
 
-                } else {
 
-                    produto.style.display = "none";
+                    const nome =
+                        produto
+                            .querySelector(
+                                "h3"
+                            )
+                            .textContent
+                            .toLowerCase();
+
+
+                    if (
+                        nome.includes(busca)
+                    ) {
+
+                        produto.style.display =
+                            "";
+
+                        encontrados++;
+
+                    } else {
+
+                        produto.style.display =
+                            "none";
+
+                    }
+
                 }
 
-            });
+            );
+
+
+            // Aviso acessível da pesquisa
+
+            if (busca !== "") {
+
+                anunciar(
+
+                    encontrados +
+
+                    (
+                        encontrados === 1
+                            ? " produto encontrado."
+                            : " produtos encontrados."
+                    )
+
+                );
+
+            }
+
         }
 
 
         // =====================================================
-        // FINALIZAR PELO WHATSAPP
+        // FINALIZAR PEDIDO NO WHATSAPP
         // =====================================================
 
         function finalizarWhatsApp() {
 
-            if (carrinho.length === 0) {
 
-                alert(
-                    "Seu carrinho está vazio. " +
-                    "Adicione um produto antes de finalizar a compra."
+            if (
+                carrinho.length === 0
+            ) {
+
+
+                anunciar(
+
+                    "O carrinho está vazio. " +
+                    "Adicione um produto antes de finalizar."
+
                 );
 
+
+                alert(
+
+                    "Seu carrinho está vazio. " +
+                    "Adicione um produto antes de finalizar a compra."
+
+                );
+
+
                 return;
+
             }
 
 
             let mensagem =
-                "Olá! Gostaria de realizar a seguinte compra:\n\n";
+
+                "Olá! Gostaria de realizar " +
+                "a seguinte compra:\n\n";
 
 
             let total = 0;
 
 
-            carrinho.forEach(function(produto) {
+            carrinho.forEach(
 
-                mensagem +=
-                    "- " +
-                    produto.nome +
-                    " - R$ " +
-                    produto.preco
-                        .toFixed(2)
-                        .replace(".", ",") +
-                    "\n";
+                function (produto) {
 
-                total += produto.preco;
-            });
+
+                    mensagem +=
+
+                        "- " +
+
+                        produto.nome +
+
+                        " - R$ " +
+
+                        formatarPreco(
+                            produto.preco
+                        ) +
+
+                        "\n";
+
+
+                    total +=
+                        produto.preco;
+
+                }
+
+            );
 
 
             mensagem +=
+
                 "\nTotal: R$ " +
-                total
-                    .toFixed(2)
-                    .replace(".", ",");
+
+                formatarPreco(total);
 
 
-            // Número da loja:
-            // Brasil + DDD 44 + número
+            // Número do WhatsApp
+            // Brasil + DDD + número
+
             const numeroWhatsApp =
                 "5544998906149";
 
 
             const url =
+
                 "https://wa.me/" +
+
                 numeroWhatsApp +
+
                 "?text=" +
-                encodeURIComponent(mensagem);
+
+                encodeURIComponent(
+                    mensagem
+                );
 
 
-            window.open(url, "_blank");
+            anunciar(
+
+                "Pedido preparado para envio pelo WhatsApp."
+
+            );
+
+
+            window.open(
+                url,
+                "_blank"
+            );
+
         }
 
     </script>
