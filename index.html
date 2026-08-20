@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+O ChatGPT disse:
+Claro. Abaixo está o código completo com as melhorias aplicadas: lang em trechos multilíngues, alt aprimorados, comunicação acessível da busca, melhorias de aria, correção do WhatsApp, mensagens para leitores de tela e pequenos ajustes de acessibilidade.
+
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -26,7 +30,7 @@
 
         /* =========================================
            ACESSIBILIDADE
-        ========================================= */
+        ========================================== */
 
         .skip-link {
             position: absolute;
@@ -52,7 +56,7 @@
             outline-offset: 3px;
         }
 
-        /* Mensagem somente para leitores de tela */
+        /* Conteúdo somente para leitores de tela */
         .aviso-acessibilidade {
             position: absolute;
             width: 1px;
@@ -67,7 +71,7 @@
 
         /* =========================================
            CABEÇALHO
-        ========================================= */
+        ========================================== */
 
         header {
             background-color: #5a2a82;
@@ -101,7 +105,7 @@
 
         /* =========================================
            CONTEÚDO
-        ========================================= */
+        ========================================== */
 
         main {
             max-width: 1200px;
@@ -122,7 +126,7 @@
 
         /* =========================================
            BUSCA
-        ========================================= */
+        ========================================== */
 
         label {
             display: block;
@@ -139,9 +143,13 @@
             font-size: 1rem;
         }
 
+        #ajuda-busca {
+            margin-bottom: 0;
+        }
+
         /* =========================================
            PRODUTOS
-        ========================================= */
+        ========================================== */
 
         .produtos {
             display: grid;
@@ -209,7 +217,7 @@
 
         /* =========================================
            CARRINHO
-        ========================================= */
+        ========================================== */
 
         .carrinho {
             background: #fff;
@@ -228,11 +236,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             gap: 20px;
-
             padding: 15px 0;
-
             border-bottom: 1px solid #ccc;
         }
 
@@ -283,7 +288,7 @@
 
         /* =========================================
            CONTATO
-        ========================================= */
+        ========================================== */
 
         #contato a {
             color: #4a216b;
@@ -292,7 +297,7 @@
 
         /* =========================================
            RODAPÉ
-        ========================================= */
+        ========================================== */
 
         footer {
             background-color: #222;
@@ -307,7 +312,7 @@
 
         /* =========================================
            CELULAR
-        ========================================= */
+        ========================================== */
 
         @media (max-width: 600px) {
 
@@ -365,8 +370,7 @@
             Loja de Perfumes
         </h1>
 
-        <nav
-            aria-label="Navegação principal">
+        <nav aria-label="Navegação principal">
 
             <ul>
 
@@ -407,8 +411,9 @@
 
     <main id="conteudo">
 
-
-        <!-- INTRODUÇÃO -->
+        <!-- =====================================
+             INTRODUÇÃO
+        ====================================== -->
 
         <section
             id="inicio"
@@ -429,6 +434,17 @@
                 rapidamente um produto.
             </p>
 
+            <!-- Trechos em outros idiomas para demonstrar
+                 o uso do atributo lang -->
+
+            <p lang="en">
+                Welcome to our perfume store.
+            </p>
+
+            <p lang="es">
+                Bienvenido a nuestra tienda de perfumes.
+            </p>
+
         </section>
 
 
@@ -445,23 +461,31 @@
             </h2>
 
             <label for="busca">
-
                 Digite o nome do perfume
                 que deseja encontrar:
-
             </label>
 
             <input
                 type="search"
                 id="busca"
+                name="busca"
                 placeholder="Ex.: Kaiak, Malbec ou Lily"
+                autocomplete="off"
                 oninput="filtrarProdutos()"
                 aria-describedby="ajuda-busca">
 
             <p id="ajuda-busca">
-
                 Os produtos serão filtrados conforme você digita.
+            </p>
 
+            <!-- Mensagem acessível para resultados da pesquisa -->
+
+            <p
+                id="resultado-busca"
+                class="aviso-acessibilidade"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true">
             </p>
 
         </section>
@@ -479,8 +503,9 @@
                 Perfumes disponíveis
             </h2>
 
-
-            <div class="produtos">
+            <div
+                class="produtos"
+                id="listaProdutos">
 
 
                 <!-- KAIak -->
@@ -630,7 +655,7 @@
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Malbec"
-                        alt="Imagem ilustrativa do perfume Malbec"
+                        alt="Imagem ilustrativa do perfume Malbec, representada em um cartão do produto"
                         loading="lazy">
 
                     <h3>
@@ -665,7 +690,7 @@
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Egeo+Dolce"
-                        alt="Imagem ilustrativa do perfume Egeo Dolce"
+                        alt="Imagem ilustrativa do perfume Egeo Dolce, representada em um cartão do produto"
                         loading="lazy">
 
                     <h3>
@@ -735,7 +760,7 @@
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Luna+Natura"
-                        alt="Imagem ilustrativa do perfume Luna Natura"
+                        alt="Imagem ilustrativa do perfume Luna Natura, representada em um cartão do produto"
                         loading="lazy">
 
                     <h3>
@@ -770,7 +795,7 @@
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Biografia"
-                        alt="Imagem ilustrativa do perfume Biografia Masculino"
+                        alt="Imagem ilustrativa do perfume Biografia Masculino, representada em um cartão do produto"
                         loading="lazy">
 
                     <h3>
@@ -798,7 +823,7 @@
                 </article>
 
 
-                <!-- KAIAK AVENTURA -->
+                <!-- KAIak AVENTURA -->
 
                 <article class="produto">
 
@@ -840,7 +865,7 @@
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Essencial+Exclusivo"
-                        alt="Imagem ilustrativa do perfume Essencial Exclusivo"
+                        alt="Imagem ilustrativa do perfume Essencial Exclusivo, representada em um cartão do produto"
                         loading="lazy">
 
                     <h3>
@@ -875,7 +900,7 @@
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Una+Art"
-                        alt="Imagem ilustrativa do perfume Una Art"
+                        alt="Imagem ilustrativa do perfume Una Art, representada em um cartão do produto"
                         loading="lazy">
 
                     <h3>
@@ -910,7 +935,7 @@
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Quasar+Classic"
-                        alt="Imagem ilustrativa do perfume Quasar Classic"
+                        alt="Imagem ilustrativa do perfume Quasar Classic, representada em um cartão do produto"
                         loading="lazy">
 
                     <h3>
@@ -945,7 +970,7 @@
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Arbo"
-                        alt="Imagem ilustrativa do perfume Arbo"
+                        alt="Imagem ilustrativa do perfume Arbo, representada em um cartão do produto"
                         loading="lazy">
 
                     <h3>
@@ -980,7 +1005,7 @@
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Floratta+Blue"
-                        alt="Imagem ilustrativa do perfume Floratta Blue"
+                        alt="Imagem ilustrativa do perfume Floratta Blue, representada em um cartão do produto"
                         loading="lazy">
 
                     <h3>
@@ -1015,7 +1040,7 @@
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Glamour+Secrets+Black"
-                        alt="Imagem ilustrativa do perfume Glamour Secrets Black"
+                        alt="Imagem ilustrativa do perfume Glamour Secrets Black, representada em um cartão do produto"
                         loading="lazy">
 
                     <h3>
@@ -1050,7 +1075,7 @@
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Liz"
-                        alt="Imagem ilustrativa do perfume Liz"
+                        alt="Imagem ilustrativa do perfume Liz, representada em um cartão do produto"
                         loading="lazy">
 
                     <h3>
@@ -1085,7 +1110,7 @@
                     <img
                         class="imagem-produto"
                         src="https://placehold.co/600x600/f5f5f5/5a2a82?text=Kriska+Drama"
-                        alt="Imagem ilustrativa do perfume Kriska Drama"
+                        alt="Imagem ilustrativa do perfume Kriska Drama, representada em um cartão do produto"
                         loading="lazy">
 
                     <h3>
@@ -1114,6 +1139,17 @@
 
             </div>
 
+            <!-- Resultado acessível da listagem -->
+
+            <p
+                id="status-produtos"
+                class="aviso-acessibilidade"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true">
+                16 produtos disponíveis.
+            </p>
+
         </section>
 
 
@@ -1130,11 +1166,6 @@
                 Carrinho de compras
             </h2>
 
-            <!--
-                Esta mensagem não aparece visualmente,
-                mas é lida pelo leitor de tela.
-            -->
-
             <div
                 id="avisoCarrinho"
                 class="aviso-acessibilidade"
@@ -1142,7 +1173,6 @@
                 aria-live="polite"
                 aria-atomic="true">
             </div>
-
 
             <p
                 id="mensagemCarrinho"
@@ -1153,12 +1183,10 @@
 
             </p>
 
-
             <ul
                 id="listaCarrinho"
                 aria-label="Produtos adicionados ao carrinho">
             </ul>
-
 
             <p class="total-carrinho">
 
@@ -1175,7 +1203,6 @@
                 </strong>
 
             </p>
-
 
             <button
                 type="button"
@@ -1210,7 +1237,7 @@
             <a
                 href="https://wa.me/5544998906149"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 aria-label="Entrar em contato com a loja pelo WhatsApp">
 
                 Entrar em contato com a loja pelo WhatsApp
@@ -1234,11 +1261,9 @@
         </p>
 
         <p>
-
             <a href="#conteudo">
                 Voltar ao conteúdo principal
             </a>
-
         </p>
 
     </footer>
@@ -1277,9 +1302,7 @@
         function anunciar(mensagem) {
 
             const aviso =
-                document.getElementById(
-                    "avisoCarrinho"
-                );
+                document.getElementById("avisoCarrinho");
 
             aviso.textContent = "";
 
@@ -1299,25 +1322,17 @@
         function addCarrinho(nome, preco) {
 
             carrinho.push({
-
                 nome: nome,
                 preco: preco
-
             });
-
 
             atualizarCarrinho();
 
-
             anunciar(
-
                 nome +
                 " foi adicionado ao carrinho. " +
-
                 "Total de itens: " +
-
                 carrinho.length
-
             );
 
         }
@@ -1332,28 +1347,17 @@
             const produtoRemovido =
                 carrinho[indice];
 
-
             if (!produtoRemovido) {
-
                 return;
-
             }
 
-
-            carrinho.splice(
-                indice,
-                1
-            );
-
+            carrinho.splice(indice, 1);
 
             atualizarCarrinho();
 
-
             anunciar(
-
                 produtoRemovido.nome +
                 " foi removido do carrinho."
-
             );
 
         }
@@ -1366,25 +1370,15 @@
         function atualizarCarrinho() {
 
             const lista =
-                document.getElementById(
-                    "listaCarrinho"
-                );
-
+                document.getElementById("listaCarrinho");
 
             const totalElemento =
-                document.getElementById(
-                    "total"
-                );
-
+                document.getElementById("total");
 
             const mensagem =
-                document.getElementById(
-                    "mensagemCarrinho"
-                );
-
+                document.getElementById("mensagemCarrinho");
 
             lista.innerHTML = "";
-
 
             let total = 0;
 
@@ -1396,24 +1390,18 @@
                 mensagem.textContent =
                     "Seu carrinho está vazio.";
 
-
                 totalElemento.textContent =
                     "0,00";
 
-
                 return;
-
             }
 
 
             // QUANTIDADE DE PRODUTOS
 
             mensagem.textContent =
-
                 "Seu carrinho possui " +
-
                 carrinho.length +
-
                 (
                     carrinho.length === 1
                         ? " produto."
@@ -1424,30 +1412,19 @@
             // CRIAR CADA ITEM
 
             carrinho.forEach(
-
-                function (
-                    produto,
-                    indice
-                ) {
-
+                function (produto, indice) {
 
                     const item =
-                        document.createElement(
-                            "li"
-                        );
-
+                        document.createElement("li");
 
                     item.className =
                         "carrinho-item";
 
 
-                    // Informações
+                    // Informações do produto
 
                     const informacoes =
-                        document.createElement(
-                            "div"
-                        );
-
+                        document.createElement("div");
 
                     informacoes.className =
                         "informacoes-produto";
@@ -1456,14 +1433,10 @@
                     // Nome
 
                     const nome =
-                        document.createElement(
-                            "span"
-                        );
-
+                        document.createElement("span");
 
                     nome.className =
                         "nome-produto-carrinho";
-
 
                     nome.textContent =
                         produto.nome;
@@ -1472,102 +1445,57 @@
                     // Preço
 
                     const preco =
-                        document.createElement(
-                            "span"
-                        );
-
+                        document.createElement("span");
 
                     preco.className =
                         "preco-produto-carrinho";
 
-
                     preco.textContent =
-
                         "Preço: R$ " +
-
-                        formatarPreco(
-                            produto.preco
-                        );
+                        formatarPreco(produto.preco);
 
 
-                    informacoes.appendChild(
-                        nome
-                    );
-
-
-                    informacoes.appendChild(
-                        preco
-                    );
+                    informacoes.appendChild(nome);
+                    informacoes.appendChild(preco);
 
 
                     // Botão remover
 
                     const botaoRemover =
-                        document.createElement(
-                            "button"
-                        );
-
+                        document.createElement("button");
 
                     botaoRemover.type =
                         "button";
 
-
                     botaoRemover.className =
                         "botao-remover";
-
 
                     botaoRemover.textContent =
                         "Remover";
 
-
                     botaoRemover.setAttribute(
-
                         "aria-label",
-
                         "Remover " +
-
                         produto.nome +
-
                         " do carrinho"
-
                     );
-
 
                     botaoRemover.addEventListener(
-
                         "click",
-
                         function () {
-
-                            removerCarrinho(
-                                indice
-                            );
-
+                            removerCarrinho(indice);
                         }
-
                     );
 
 
-                    item.appendChild(
-                        informacoes
-                    );
+                    item.appendChild(informacoes);
+                    item.appendChild(botaoRemover);
 
+                    lista.appendChild(item);
 
-                    item.appendChild(
-                        botaoRemover
-                    );
-
-
-                    lista.appendChild(
-                        item
-                    );
-
-
-                    total +=
-                        produto.preco;
+                    total += produto.preco;
 
                 }
-
             );
 
 
@@ -1585,77 +1513,82 @@
 
         function filtrarProdutos() {
 
+            const campoBusca =
+                document.getElementById("busca");
+
             const busca =
-                document
-                    .getElementById(
-                        "busca"
-                    )
-                    .value
+                campoBusca.value
                     .toLowerCase()
                     .trim();
 
-
             const produtos =
-                document.querySelectorAll(
-                    ".produto"
-                );
+                document.querySelectorAll(".produto");
 
+            const resultadoBusca =
+                document.getElementById("resultado-busca");
+
+            const statusProdutos =
+                document.getElementById("status-produtos");
 
             let encontrados = 0;
 
 
             produtos.forEach(
-
                 function (produto) {
 
+                    const titulo =
+                        produto.querySelector("h3");
 
                     const nome =
-                        produto
-                            .querySelector(
-                                "h3"
-                            )
-                            .textContent
+                        titulo.textContent
                             .toLowerCase();
 
+                    if (nome.includes(busca)) {
 
-                    if (
-                        nome.includes(busca)
-                    ) {
-
-                        produto.style.display =
-                            "";
+                        produto.style.display = "";
 
                         encontrados++;
 
                     } else {
 
-                        produto.style.display =
-                            "none";
+                        produto.style.display = "none";
 
                     }
 
                 }
-
             );
 
 
-            // Aviso acessível da pesquisa
+            // Mensagem acessível
 
-            if (busca !== "") {
+            if (busca === "") {
 
-                anunciar(
+                resultadoBusca.textContent = "";
 
-                    encontrados +
+                statusProdutos.textContent =
+                    "16 produtos disponíveis.";
 
-                    (
-                        encontrados === 1
-                            ? " produto encontrado."
-                            : " produtos encontrados."
-                    )
+                return;
+            }
 
+
+            const mensagem =
+                encontrados +
+                (
+                    encontrados === 1
+                        ? " produto encontrado."
+                        : " produtos encontrados."
                 );
 
-            }
+
+            resultadoBusca.textContent =
+                mensagem;
+
+            statusProdutos.textContent =
+                mensagem;
+
+
+            anunciar(mensagem);
 
         }
 
@@ -1666,74 +1599,48 @@
 
         function finalizarWhatsApp() {
 
+            if (carrinho.length === 0) {
 
-            if (
-                carrinho.length === 0
-            ) {
-
-
-                anunciar(
-
+                const mensagemVazia =
                     "O carrinho está vazio. " +
-                    "Adicione um produto antes de finalizar."
+                    "Adicione um produto antes de finalizar.";
 
-                );
-
+                anunciar(mensagemVazia);
 
                 alert(
-
                     "Seu carrinho está vazio. " +
                     "Adicione um produto antes de finalizar a compra."
-
                 );
 
-
                 return;
-
             }
 
 
             let mensagem =
-
                 "Olá! Gostaria de realizar " +
                 "a seguinte compra:\n\n";
-
 
             let total = 0;
 
 
             carrinho.forEach(
-
                 function (produto) {
 
-
                     mensagem +=
-
                         "- " +
-
                         produto.nome +
-
                         " - R$ " +
-
-                        formatarPreco(
-                            produto.preco
-                        ) +
-
+                        formatarPreco(produto.preco) +
                         "\n";
 
-
-                    total +=
-                        produto.preco;
+                    total += produto.preco;
 
                 }
-
             );
 
 
             mensagem +=
-
                 "\nTotal: R$ " +
-
                 formatarPreco(total);
 
 
@@ -1744,31 +1651,34 @@
                 "5544998906149";
 
 
+            // URL corrigida
+
             const url =
-
                 "https://wa.me/" +
-             +55 (44)998906149
-
+                numeroWhatsApp +
                 "?text=" +
-
-                encodeURIComponent(
-                    mensagem
-                );
+                encodeURIComponent(mensagem);
 
 
             anunciar(
-
                 "Pedido preparado para envio pelo WhatsApp."
-
             );
 
 
             window.open(
                 url,
-                "_blank"
+                "_blank",
+                "noopener,noreferrer"
             );
 
         }
+
+
+        // =====================================================
+        // INICIALIZAÇÃO
+        // =====================================================
+
+        atualizarCarrinho();
 
     </script>
 
